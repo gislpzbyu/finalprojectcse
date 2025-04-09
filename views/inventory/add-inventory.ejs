@@ -1,0 +1,46 @@
+<h1>Agregar Vehículo</h1>
+
+<div class="centered">
+
+<%- messages() %>
+
+<form action="/inv/add-inventory" method="post">
+    <label for="inv_make">Marca:</label>
+    <input type="text" id="inv_make" name="inv_make" required placeholder="Ingresa la marca"><br>
+
+    <label for="inv_model">Modelo:</label>
+    <input type="text" id="inv_model" name="inv_model" required placeholder="Ingresa el modelo"><br>
+
+    <label for="inv_year">Año:</label>
+    <input type="text" id="inv_year" name="inv_year" required pattern="\d{4}" placeholder="Ej: 2023"><br>
+
+    <label for="inv_description">Descripción:</label>
+    <textarea id="inv_description" name="inv_description" required placeholder="Ingresa la descripción"></textarea><br>
+
+    <label for="inv_image">Ruta de la Imagen:</label>
+    <input type="text" id="inv_image" name="inv_image" required placeholder="Ej: /images/vehicles/camaro.jpg"><br>
+
+    <label for="inv_thumbnail">Ruta del Thumbnail:</label>
+    <input type="text" id="inv_thumbnail" name="inv_thumbnail" required placeholder="Ej: /images/vehicles/camaro-tn.jpg"><br>
+
+    <label for="inv_price">Precio:</label>
+    <input type="number" id="inv_price" name="inv_price" required min="0" step="0.01" placeholder="Ingresa el precio"><br>
+
+    <label for="inv_miles">Millas:</label>
+    <input type="number" id="inv_miles" name="inv_miles" required min="0" placeholder="Ingresa las millas"><br>
+
+    <label for="inv_color">Color:</label>
+    <input type="text" id="inv_color" name="inv_color" required placeholder="Ingresa el color"><br>
+
+    <label for="classification_">Clasificación:</label>
+    <select id="classification_" name="classification_" required>
+        <option value="" disabled selected>Selecciona una clasificación</option>
+        <% classifications.forEach(function(classification) { %>
+            <option value="<%= classification.classification_id %>"><%= classification.classification_name %></option>
+        <% }); %>
+    </select><br>
+
+    <button type="submit">Agregar Vehículo</button>
+</form>
+
+</div>

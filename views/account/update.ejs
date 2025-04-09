@@ -1,0 +1,46 @@
+<h1><%= title %></h1>
+<div style="display: flex; justify-content: center;">
+    <% if (messages && messages.error) { %>
+        <ul style="color: red; list-style: none; padding: 0;">
+            <% messages.error.forEach(msg => { %>
+                <li><%= msg %></li>
+            <% }) %>
+        </ul>
+    <% } %>
+    <form action="/account/update" method="POST">
+        <div>
+            <label for="account_firstname">First Name:</label>
+            <input type="text" id="account_firstname" name="account_firstname"
+                   value="<%= account.account_firstname %>" required>
+        </div>
+
+        <div>
+            <label for="account_lastname">Last Name:</label>
+            <input type="text" id="account_lastname" name="account_lastname"
+                   value="<%= account.account_lastname %>" required>
+        </div>
+
+        <div>
+            <label for="account_email">Email:</label>
+            <input type="email" id="account_email" name="account_email"
+                   value="<%= account.account_email %>" required readonly>
+        </div>
+
+        <div>
+            <label for="account_password_new">Password:</label>
+            <input type="password" id="account_password_new" name="account_password_new"
+                   placeholder="Enter new password (leave blank to keep current)">
+        </div>
+        <small>Leave blank if you do not want to change the password.</small><br>
+
+<!--        <div>-->
+<!--            <label for="account_type">Account Type:</label>-->
+<!--            <select id="account_type" name="account_type">-->
+<!--                <option value="Client" <%= account.account_type === 'Client' ? 'selected' : '' %>>Client</option>-->
+<!--                <option value="Admin" <%= account.account_type === 'Admin' ? 'selected' : '' %>>Admin</option>-->
+<!--            </select>-->
+<!--        </div>-->
+
+        <button type="submit">Update Account</button>
+    </form>
+</div>

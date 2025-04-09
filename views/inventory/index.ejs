@@ -1,0 +1,17 @@
+<h1><%= title %></h1>
+
+<div class="custom-container">
+    <ul>
+        <li><a href="/inv/add-classification">Add new classification</a></li>
+        <li><a href="/inv/add-inventory">Add new inventory view</a></li>
+    </ul>
+    <!--  Select the classification you want to view -->
+    <%- classificationSelect %>
+
+    <table id="inventoryDisplay"></table>
+    <noscript>Please enable JavaScript to view the content of this page.</noscript>
+
+<!--    <div id="errorDisplay"></div>-->
+
+    <script src="../../js/inventory.js"></script>
+</div>
